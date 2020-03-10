@@ -1,0 +1,47 @@
+<form method="post">
+    <div class="post-schedule-background">
+        <div class="center">
+            <h4>
+                <div class="center-item" style="position: absolute;top: 24vh;left: 45vw;">
+                    <p>
+                        <label>Number:</label>
+                        <input name="select_title" placeholder="Train number">
+                    </p>
+                    <p>
+                        <label>Departure city:</label>
+                        <select name="select_room" class="custom-select custom-select-sm" id="select"
+                            style="width:auto">
+                            <% @cities.each do |city| %>
+                            <% @city = city %>
+                            <%= render :util_city %>
+                            <% end  %>
+                        </select>
+                    </p>
+                    <p>
+                        <label>Arrival city:</label>
+                        <select name="select_room" class="custom-select custom-select-sm" id="select"
+                            style="width:auto">
+                            <% @cities.each do |city| %>
+                            <% @city = city %>
+                            <%= render :util_city %>
+                            <% end  %>
+                        </select>
+                    </p>
+                    <p>
+                        <label>Departure time:</label>
+                    </p>
+                    <p>
+                        <label>Arrival time:</label>
+                    </p>
+                    <p>
+                        <label>Price:</label>
+                        <input name="select_title" placeholder="Price">
+                    </p>
+                    <p>
+                        <input class="btn btn-success" type="submit" value="Create">
+                    </p>
+                </div>
+            </h4>
+        </div>
+    </div>
+</form>

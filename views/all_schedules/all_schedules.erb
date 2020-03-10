@@ -1,0 +1,23 @@
+<form method="get">
+    <div class="schedule-background">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Departure</th>
+                    <th scope="col">Arrival</th>
+                    <th scope="col">Departure time</th>
+                    <th scope="col">Arrival time</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @schedules.each do |schedule| %>
+                <% @schedule = schedule %>
+                <% @city = schedule.city %>
+                <%= render :all_schedule_partial %>
+                <% end  %>
+            </tbody>
+        </table>
+    </div>
+</form>

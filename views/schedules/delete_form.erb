@@ -1,0 +1,17 @@
+<form method="post">
+    <div class="post-schedule-background">
+        <div class="center-item" style="position: absolute;top: 24vh;left: 45vw;">
+                <h4>
+                    <p>Train number: <%= @schedule[:number] %></p>
+                    <p>Departure city: <%= @schedule.city[:city_name] %></p>
+                    <p>Arrival city: <%= @schedule.city[:city_name] %></p>
+                    <p>Departure time: <%= @schedule[:departure_time] %></p>
+                    <p>Arrival time: <%= @schedule[:arrival_time] %></p>
+                    <p>Price: <%= @schedule[:price] %></p>
+                </h4>
+            <p>
+            </p>
+            <input class="btn btn-danger" type="submit" value="Remove">
+        </div>
+    </div>
+</form>

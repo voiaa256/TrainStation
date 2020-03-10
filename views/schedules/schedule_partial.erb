@@ -1,0 +1,10 @@
+<tr>
+  <td> <h4><%= @schedule[:number] %></h4></td>
+  <td><h4><%= @city[:city_name] %></h4></td>
+  <td><h4><%= @city[:city_name] %></h4></td>
+  <td><h4> <%= @schedule[:departure_time] %></h4></td>
+  <td> <h4><%= @schedule[:arrival_time] %></h4></td>
+  <td> <h4><%= @schedule[:price] %></h4></td>
+  <td><h4><a href="/schedules/<%= @schedule[:id] %>/edit">Change</a></h4></td>
+  <td><h4><a href="/schedules/<%= @schedule[:id] %>/delete">Remove</a></h4></td>
+</tr>
