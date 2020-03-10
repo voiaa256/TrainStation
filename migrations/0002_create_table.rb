@@ -2,9 +2,9 @@
 
 Sequel.migration do
   change do
-    create_table(:cities) do
+    create_table(:numbers) do
       primary_key :id
-      String :city_name, null: false, size: 100
+      Integer :number, null: false, size: 20
     end
   end
 end

@@ -4,8 +4,8 @@
             <thead>
                 <tr>
                     <th scope="col">Number</th>
-                    <th scope="col">Departure</th>
-                    <th scope="col">Arrival</th>
+                    <th scope="col">Departure city</th>
+                    <th scope="col">Arrival city</th>
                     <th scope="col">Departure time</th>
                     <th scope="col">Arrival time</th>
                     <th scope="col">Price</th>
@@ -14,7 +14,7 @@
             <tbody>
                 <% @schedules.each do |schedule| %>
                 <% @schedule = schedule %>
-                <% @city = schedule.city %>
+                <% @number = schedule.number%>
                 <%= render :all_schedule_partial %>
                 <% end  %>
             </tbody>

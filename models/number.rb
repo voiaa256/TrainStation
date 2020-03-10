@@ -2,6 +2,6 @@
 
 require 'sequel'
 # model for a schedules datatable
-class City < Sequel::Model(:cities)
+class Number < Sequel::Model(:numbers)
   one_to_many :schedules
 end

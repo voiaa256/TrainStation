@@ -22,46 +22,44 @@ namespace :db do
   desc 'Fill database'
   task :fill_base do |_, _|
     Sequel.connect('sqlite://db/schedules.db') do |db|
-      city_one = db[:cities].insert(city_name: 'Moscow')
-      city_two = db[:cities].insert(city_name: 'Sain-Petersburg')
-      city_three = db[:cities].insert(city_name: 'Yaroslavl')
-      city_four = db[:cities].insert(city_name: 'Cherepovets')
-      city_five = db[:cities].insert(city_name: 'Sochi')
-      city_six = db[:cities].insert(city_name: 'Kazan')
+      number_one = db[:numbers].insert(number: 310)
+      number_two = db[:numbers].insert(number: 102)
+      number_three = db[:numbers].insert(number: 103)
+      number_four = db[:numbers].insert(number: 101)
 
-      db[:schedules].insert(number: 601, departure_city_id:city_one, arrival_city_id:city_two, 
-        departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 12, 0, 0).to_s, price: 3000)
+      db[:schedules].insert(number_id: number_one, departure_city: 'Moscow', arrival_city: 'Saint-Petersburg',
+                            departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 12, 0, 0).to_s, price: 3000)
 
-      db[:schedules].insert(number: 602, departure_city_id:city_four, arrival_city_id:city_three, 
-        departure_time: Time.new(2020, 3, 10, 18, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 4, 30, 0).to_s, price: 1500)
+      db[:schedules].insert(number_id: number_two, departure_city: 'Cherepovets', arrival_city: 'Yaroslavl',
+                            departure_time: Time.new(2020, 3, 10, 18, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 4, 30, 0).to_s, price: 1500)
 
-      db[:schedules].insert(number: 603, departure_city_id:city_three, arrival_city_id:city_four, 
-        departure_time: Time.new(2020, 3, 11, 9, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 19, 30, 0).to_s, price: 1500)
+      db[:schedules].insert(number_id: number_three, departure_city: 'Yaroslavl', arrival_city: 'Cherepovets',
+                            departure_time: Time.new(2020, 3, 11, 9, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 19, 30, 0).to_s, price: 1500)
 
-      db[:schedules].insert(number: 604, departure_city_id:city_two, arrival_city_id:city_one, 
-        departure_time: Time.new(2020, 3, 11, 15, 0, 0).to_s, arrival_time:Time.new(2020, 3, 12, 5, 0, 0).to_s, price: 3000)
+      db[:schedules].insert(number_id: number_four, departure_city: 'Saint-Petersburg', arrival_city: 'Moscow',
+                            departure_time: Time.new(2020, 3, 11, 15, 0, 0).to_s, arrival_time: Time.new(2020, 3, 12, 5, 0, 0).to_s, price: 3000)
 
-      db[:schedules].insert(number: 605, departure_city_id:city_one, arrival_city_id:city_five, 
-        departure_time: Time.new(2020, 3, 10, 9, 0, 0).to_s, arrival_time:Time.new(2020, 3, 12, 9, 0, 0).to_s, price: 5000)
+      db[:schedules].insert(number_id: number_one, departure_city: 'Moscow', arrival_city: 'Sochi',
+                            departure_time: Time.new(2020, 3, 10, 9, 0, 0).to_s, arrival_time: Time.new(2020, 3, 12, 9, 0, 0).to_s, price: 5000)
 
-      db[:schedules].insert(number: 606, departure_city_id:city_one, arrival_city_id:city_six, 
-        departure_time: Time.new(2020, 3, 10, 10, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 12, 0, 0).to_s, price: 3500)
+      db[:schedules].insert(number_id: number_one, departure_city: 'Moscow', arrival_city: 'Kazan',
+                            departure_time: Time.new(2020, 3, 10, 10, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 12, 0, 0).to_s, price: 3500)
 
-      db[:schedules].insert(number: 607, departure_city_id:city_one, arrival_city_id:city_three, 
-        departure_time: Time.new(2020, 3, 10, 10, 0, 0).to_s, arrival_time:Time.new(2020, 3, 10, 18, 0, 0).to_s, price: 1250)
+      db[:schedules].insert(number_id: number_one, departure_city: 'Moscow', arrival_city: 'Yaroslavl',
+                            departure_time: Time.new(2020, 3, 10, 10, 0, 0).to_s, arrival_time: Time.new(2020, 3, 10, 18, 0, 0).to_s, price: 1250)
 
-      db[:schedules].insert(number: 608, departure_city_id:city_one, arrival_city_id:city_four, 
-        departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 6, 45, 0).to_s, price: 2000)
+      db[:schedules].insert(number_id: number_one, departure_city: 'Moscow', arrival_city: 'Cherepovets',
+                            departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 6, 45, 0).to_s, price: 2000)
 
-      db[:schedules].insert(number: 609, departure_city_id:city_four, arrival_city_id:city_two, 
-        departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time:Time.new(2020, 3, 11, 9, 0, 0).to_s, price: 2500)
+      db[:schedules].insert(number_id: number_two, departure_city: 'Cherepovets', arrival_city: 'Saint-Petersburg',
+                            departure_time: Time.new(2020, 3, 10, 21, 0, 0).to_s, arrival_time: Time.new(2020, 3, 11, 9, 0, 0).to_s, price: 2500)
 
-      db[:schedules].insert(number: 610, departure_city_id:city_two, arrival_city_id:city_four, 
-        departure_time: Time.new(2020, 3, 11, 12, 0, 0).to_s, arrival_time:Time.new(2020, 3, 12, 0, 0, 0).to_s, price: 2500)
+      db[:schedules].insert(number_id: number_four, departure_city: 'Saint-Petersburg', arrival_city: 'Cherepovets',
+                            departure_time: Time.new(2020, 3, 11, 12, 0, 0).to_s, arrival_time: Time.new(2020, 3, 12, 0, 0, 0).to_s, price: 2500)
 
-      db[:schedules].insert(number: 611, departure_city_id:city_two, arrival_city_id:city_three, 
-        departure_time: Time.new(2020, 3, 13, 21, 0, 0).to_s, arrival_time:Time.new(2020, 3, 14, 11, 30, 0).to_s, price: 3250)
-      end
+      db[:schedules].insert(number_id: number_four, departure_city: 'Saint-Petersburg', arrival_city: 'Yaroslavl',
+                            departure_time: Time.new(2020, 3, 13, 21, 0, 0).to_s, arrival_time: Time.new(2020, 3, 14, 11, 30, 0).to_s, price: 3250)
+    end
   end
 end
 
