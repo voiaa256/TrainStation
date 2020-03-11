@@ -4,24 +4,24 @@ require 'sequel'
 require_relative 'schedule'
 # model for a schedules datatable
 class Schedule < Sequel::Model(:schedules)
-
-  def self.returnDepartureAndTimeInterval(item)
+  def self.return_departure_and_time_interval(item)
     query = 'select * from schedules
     where departure_city like "' + item[:select_departure_city] + '"'
     db[query].all
   end
 
-  def self.returnAllCityWithoutDeparture
+  def self.return_all_city_without_departure
     query = 'select distinct arrival_city city from schedules
     except select distinct departure_city city from schedules'
     db[query].all
   end
 
-  def self.returnAllCityWithTrainStation
+  def self.return_all_city_with_train_station
     query = 'select departure_city city from schedules
     union select arrival_city city from schedules'
     db[query].all
   end
+
   def self.update_schedule(item, schedule_id)
     self[schedule_id].update(number: item[:select_number],
                              departure_city: item[:select_departure_city],

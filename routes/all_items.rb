@@ -20,22 +20,22 @@ class App
       end
 
       r.post do
-          symboled_params = r.params.map { |key, value| [key.to_sym, value] }.to_h
-          @schedules = Schedule.returnDepartureAndTimeInterval(symboled_params)
-          view :all_schedules
-        end
+        symboled_params = r.params.map { |key, value| [key.to_sym, value] }.to_h
+        @schedules = Schedule.return_departure_and_time_interval(symboled_params)
+        view :all_schedules
+      end
     end
 
     r.on 'cityWithoutDeparture' do
       r.get do
-        @cities = Schedule.returnAllCityWithoutDeparture
+        @cities = Schedule.return_all_city_without_departure
         view :cities
       end
     end
 
     r.on 'cityWithTrainStation' do
       r.get do
-        @cities = Schedule.returnAllCityWithTrainStation
+        @cities = Schedule.return_all_city_with_train_station
         view :cities
       end
     end

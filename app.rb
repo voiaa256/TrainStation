@@ -7,7 +7,6 @@ require_relative 'helpers/contract_helper'
 require_relative 'helpers/successfull_result'
 require_relative 'lib/schedules_contract'
 
-
 # app class
 class App < Roda
   plugin :render
