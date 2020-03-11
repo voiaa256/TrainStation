@@ -7,10 +7,10 @@
             <thead>
                 <tr>
                     <th scope="col">Number</th>
-                    <th scope="col">Departure</th>
-                    <th scope="col">Destination</th>
+                    <th scope="col">Departure city</th>
+                    <th scope="col">Arrival city</th>
                     <th scope="col">Departure time</th>
-                    <th scope="col">Destination time</th>
+                    <th scope="col">Arrival time</th>
                     <th scope="col">Price</th>
                     <th scope="col">Change</th>
                     <th scope="col">Remove</th>
@@ -19,7 +19,7 @@
             <tbody>
                 <% @schedules.each do |schedule| %>
                 <% @schedule = schedule %>
-                <% @city = schedule.city %>
+                <% @number = schedule.number %>
                 <%= render :schedule_partial %>
                 <% end  %>
             </tbody>

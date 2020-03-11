@@ -4,4 +4,4 @@ You are allowed to:
 1. Remove rake task
 2. Add existing rake tasks
 To add existing rake tasks automatically delete this file and reload the project.
---><RakeGroup description="" fullCmd="" taksId="rake"><RakeGroup description="" fullCmd="" taksId="db"><RakeTask description="Fill database" fullCmd="db:fill_base" taksId="fill_base" /><RakeTask description="Run migrations" fullCmd="db:migrate[version]" taksId="migrate[version]" /><RakeTask description="" fullCmd="db:migrate" taksId="migrate" /></RakeGroup><RakeTask description="Run RuboCop" fullCmd="rubocop" taksId="rubocop" /><RakeGroup description="" fullCmd="" taksId="rubocop"><RakeTask description="Auto-correct RuboCop offenses" fullCmd="rubocop:auto_correct" taksId="auto_correct" /></RakeGroup><RakeGroup description="" fullCmd="" taksId="server"><RakeTask description="Start server" fullCmd="server:start" taksId="start" /></RakeGroup><RakeTask description="" fullCmd="default" taksId="default" /></RakeGroup></Settings>
+--><RakeGroup description="" fullCmd="" taksId="rake" /></Settings>

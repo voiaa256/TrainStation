@@ -5,6 +5,9 @@ require 'sequel'
 require 'sqlite3'
 require_relative 'helpers/contract_helper'
 require_relative 'helpers/successfull_result'
+require_relative 'lib/schedules_contract'
+require_relative 'lib/schedule_questions_contract'
+
 
 # app class
 class App < Roda
@@ -20,6 +23,7 @@ class App < Roda
 
   require_relative 'routes/home_page_route'
   require_relative 'routes/all_items'
+  require_relative 'routes/schedules_route'
 
   route do |r|
     r.public
