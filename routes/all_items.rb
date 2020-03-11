@@ -13,7 +13,7 @@ class App
       end
     end
 
-    r.on '2' do
+    r.on 'departureAndTimeInterval' do
       r.get do
         @result = SuccessfullResult.new
         view :interval_date_form
