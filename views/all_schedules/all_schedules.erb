@@ -1,5 +1,14 @@
 <form method="get">
     <div class="schedule-background">
+      <p>
+        <a class="btn btn-outline-dark" href='/all_schedules/2'>Вывести все поезда по пункту отправления и времени отправления, принадлежащему заданному пользователем интервалу дней.</a>
+      </p>
+      <p>
+        <a class="btn btn-outline-dark" href='/all_schedules/cityWithoutDeparture'>Вывести список всех городов, в которые можно приехать поездом, но невозможно уехать.</a>
+      </p>
+      <p>
+        <a class="btn btn-outline-dark" href='/all_schedules/cityWithTrainStation'>Вывести список всех городов с железнодорожным сообщением.</a>
+      </p>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -14,7 +23,6 @@
             <tbody>
                 <% @schedules.each do |schedule| %>
                 <% @schedule = schedule %>
-                <% @number = schedule.number%>
                 <%= render :all_schedule_partial %>
                 <% end  %>
             </tbody>

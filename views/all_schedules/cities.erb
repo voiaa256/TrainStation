@@ -1,0 +1,17 @@
+<form method="get">
+  <div class="schedule-background">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">City</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @cities.each do |city| %>
+        <% @city = city[:city] %>
+        <%= render :cities_partial %>
+      <% end  %>
+      </tbody>
+    </table>
+  </div>
+</form>

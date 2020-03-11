@@ -5,13 +5,7 @@
         <div class="center-item" style="position: absolute;top: 24vh;left: 45vw;">
           <p>
             <label>Number:</label>
-            <select name="select_number" class="custom-select custom-select-sm" id="select"
-                    style="width:auto">
-              <% @number.each do |number| %>
-                <% @number = number %>
-                <%= render :util_number %>
-              <% end  %>
-            </select>
+            <input name="select_number" placeholder="Number">
           </p>
           <p>
             <label>Departure city:</label>

@@ -8,10 +8,8 @@ class App
 
     r.is do
       r.get do
-        @search = r.params['search']
-        @selection = r.params['select']
         @page_number = r.params['page_number']&.to_i || 0
-        schedules = Schedule.search_by(@search, @selection) || Schedule
+        schedules = Schedule
         @count = schedules.count
         @pages_count = (@count.to_f / 5).ceil - 1
         @schedules = schedules.limit(5, @page_number * 5).all
@@ -24,7 +22,6 @@ class App
         r.get do
           r.redirect '/schedules' if Schedule.find(id: schedule_id).nil?
           @schedule = Schedule[schedule_id]
-          @number = Number
           @errors = {}
           view :edit_form
         end
@@ -33,12 +30,11 @@ class App
           @result = validate_contract(SchedulesContract, r.params)
           if @result.failure?
             @schedule = Schedule[schedule_id]
-            @number = Number
+            @errors = @result.errors.to_h
             view :edit_form
           else
             symbol_params = r.params.map { |key, value| [key.to_sym, value] }.to_h
-            new_number_id = Number.find_or_create(number: symbol_params[:select_number])[:id]
-            Schedule.update_schedule(new_number_id, symbol_params, schedule_id)
+            Schedule.update_schedule(symbol_params, schedule_id)
             r.redirect '/schedules'
           end
         end
@@ -48,7 +44,6 @@ class App
         r.get do
           r.redirect '/schedules' if Schedule.find(id: schedule_id).nil?
           @schedule = Schedule[schedule_id]
-          @number = Number
           view :delete_form
         end
 
@@ -62,19 +57,17 @@ class App
     r.on 'new' do
       r.get do
         @result = SuccessfullResult.new
-        @number = Number
         view :create_form
       end
 
       r.post do
         @result = validate_contract(SchedulesContract, r.params)
         if @result.failure?
-          @number = Number
+          @errors = @result.errors.to_h
           view :create_form
         else
           symboled_params = r.params.map { |key, value| [key.to_sym, value] }.to_h
-          new_number_id = Number.find_or_create(number: symboled_params[:select_number])[:id]
-          Schedule.add_new_item(symboled_params, new_number_id)
+          Schedule.add_new_item(symboled_params)
           r.redirect '/schedules'
         end
       end

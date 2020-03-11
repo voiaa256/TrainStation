@@ -6,7 +6,6 @@ require 'sqlite3'
 require_relative 'helpers/contract_helper'
 require_relative 'helpers/successfull_result'
 require_relative 'lib/schedules_contract'
-require_relative 'lib/schedule_questions_contract'
 
 
 # app class
@@ -17,7 +16,6 @@ class App < Roda
   plugin :view_options
   DB = Sequel.connect("sqlite:///#{File.expand_path('./db/schedules.db', __dir__)}")
   require_relative 'models/schedule'
-  require_relative 'models/number'
 
   include ContractHelper
 

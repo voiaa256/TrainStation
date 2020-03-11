@@ -4,7 +4,7 @@ Sequel.migration do
   change do
     create_table(:schedules) do
       primary_key :id
-      foreign_key :number_id, :numbers, null: false
+      Integer :number, null: false, size: 20
       String :departure_city, null: false, size: 100
       String :arrival_city, null: false, size: 100
       String :departure_time, null: false, size: 100

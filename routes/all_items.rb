@@ -8,12 +8,35 @@ class App
 
     r.is do
       r.get do
-        @search = r.params['search']
-        @selection = r.params['select']
-        @page_number = r.params['page_number']&.to_i || 0
-        schedules = Schedule.search_by(@search, @selection) || Schedule
-        @schedules = schedules
+        @schedules = Schedule
         view :all_schedules
+      end
+    end
+
+    r.on '2' do
+      r.get do
+        @result = SuccessfullResult.new
+        view :interval_date_form
+      end
+
+      r.post do
+          symboled_params = r.params.map { |key, value| [key.to_sym, value] }.to_h
+          @schedules = Schedule.returnDepartureAndTimeInterval(symboled_params)
+          view :all_schedules
+        end
+    end
+
+    r.on 'cityWithoutDeparture' do
+      r.get do
+        @cities = Schedule.returnAllCityWithoutDeparture
+        view :cities
+      end
+    end
+
+    r.on 'cityWithTrainStation' do
+      r.get do
+        @cities = Schedule.returnAllCityWithTrainStation
+        view :cities
       end
     end
   end
